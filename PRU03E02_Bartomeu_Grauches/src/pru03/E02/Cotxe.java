@@ -50,36 +50,78 @@ public class Cotxe extends PRU03E02Cotxe_Bartomeu_Grauches {
 		this.mManual = CanviarMarxaManual.N;
 		
 	}
-
-	public void CanviarMarxaManual(char plus) throws Exception {
-		if(this.getTipuscanvi() == TipusCanvi.CanviManual) {
-			if (this.getmManual() == CanviarMarxaManual.N) {
-				this.mManual = CanviarMarxaManual.Primera;
-			}
-			else if (this.getmManual() == CanviarMarxaManual.Primera) {
-				this.mManual = CanviarMarxaManual.Segona;
-			}
-			else if (this.getmManual() == CanviarMarxaManual.Tercera) {
-				this.mManual = CanviarMarxaManual.Quarta;
-			}
-			else if (this.getmManual() == CanviarMarxaManual.Quarta) {
-				this.mManual = CanviarMarxaManual.Cinquena;
-			}
-			else if (this.getmManual() == CanviarMarxaManual.Cinquena) {
-				this.mManual = CanviarMarxaManual.Sisena;
+	
+	//MÈTODE PER PUJAR I BAIXAR MARXES AUTOMATIQUES
+	public void CanviarMarxaAutomatic (char mesmenys) {
+		System.out.println ("El cotxe está en marxa "+ mAuto);
+		if(this.getTipuscanvi() == TipusCanvi.CanviAutomatic) {
+			System.out.println ("El cotxe está en marxa "+ mAuto);
+			if (mesmenys == '+') {
+				if (this.getmAuto() == CanviarMarxaAutomatic.N) {
+					this.mAuto = CanviarMarxaAutomatic.F;
+					System.out.println ("El cotxe está en marxa "+ mAuto);
+				}
+				
 			}
 			
-			else if (this.getmManual() == CanviarMarxaManual.Sisena) {
-				throw new Exception("No hi ha sèptima marxa.");
+			if (mesmenys == '-') {
+				if (this.getmAuto() == CanviarMarxaAutomatic.N) {
+					this.mAuto = CanviarMarxaAutomatic.R;
+					System.out.println ("El cotxe está en marxa "+ mAuto);
+				}
+				
+			}
+		}
+	}
+
+	//MÈTODE PER PUJAR I BAIXAR MARXES MANUALS
+	public void CanviarMarxaManual(char mesmenys){
+		if(this.getTipuscanvi() == TipusCanvi.CanviManual) {
+			System.out.println ("El cotxe está en marxa "+ mManual);
+			//Si el char es '+' pujará una marxa
+			if (mesmenys == '+') {
+				if (this.getmManual() == CanviarMarxaManual.N) {
+					this.mManual = CanviarMarxaManual.Primera;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Primera) {
+					this.mManual = CanviarMarxaManual.Segona;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Tercera) {
+					this.mManual = CanviarMarxaManual.Quarta;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Quarta) {
+					this.mManual = CanviarMarxaManual.Cinquena;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Cinquena) {
+					this.mManual = CanviarMarxaManual.Sisena;
+				}
 			}
 		}
 		
-		
-	}
-	
-	
-	public void CanviarMarxaAutomatic() {
-		
-	}
-	
-}
+			//Si el char es '-' pujará una marxa
+			if (mesmenys == '-') {
+				if (this.getmManual() == CanviarMarxaManual.Sisena) {
+					this.mManual = CanviarMarxaManual.Cinquena;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Cinquena) {
+					this.mManual = CanviarMarxaManual.Quarta;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Quarta) {
+					this.mManual = CanviarMarxaManual.Tercera;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Tercera) {
+					this.mManual = CanviarMarxaManual.Segona;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Segona) {
+					this.mManual = CanviarMarxaManual.Primera;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.Primera) {
+					this.mManual = CanviarMarxaManual.N;
+				}
+				else if (this.getmManual() == CanviarMarxaManual.N) {
+					this.mManual = CanviarMarxaManual.R;
+				}
+			}
+		}
+}	
+

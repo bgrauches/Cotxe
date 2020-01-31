@@ -6,8 +6,10 @@ public class PRU03E02TestCotxe_Bartomeu_Grauches {
 	public static void main(String[] args) {
 		
 		//DECLARAM MARCA MODEL I CANVI DEL COTXU
-		PRU03E02Cotxe_Bartomeu_Grauches cotxu1 = new PRU03E02Cotxe_Bartomeu_Grauches ("Audi", "A3", TipusCanvi.CanviManual);
+		Cotxe cotxu1 = new Cotxe ("Audi", "A3", TipusCanvi.CanviManual);
+		Cotxe cotxu2 = new Cotxe ("Renault", "Clio", TipusCanvi.CanviAutomatic);
 		
+		/*
 		//Mètode d'excepcions per arrancar motor
 		cotxu1.provaArrancarMotor();
 		
@@ -19,7 +21,17 @@ public class PRU03E02TestCotxe_Bartomeu_Grauches {
 		
 		//Excepcions per comprovar si el cotxe esta aturat
 		cotxu1.provaAturarMotor();
+		*/
+		
+		cotxu1.CanviarMarxaManual('+');
+		cotxu1.CanviarMarxaManual('+');
+		cotxu1.CanviarMarxaManual('+');
+		cotxu1.CanviarMarxaManual('-');
+	
 	}
+	
+	
+
 	
 }
 
